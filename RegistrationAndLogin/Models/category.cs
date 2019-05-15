@@ -16,13 +16,14 @@ namespace RegistrationAndLogin.Models
 
     public partial class category
     {
+        [DisplayName("Category Id")]
         public int id { get; set; }
-        
+        [DisplayName("Category Name")]
         public string title { get; set; }
-       
+        [DisplayName("Description")]
         public string description { get; set; }
 
-        [Display (Name = "Date Added")]
+      
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{DD/MM/yyyy}")]
         public DateTime? dateAdded { get; set; }
 
@@ -30,6 +31,6 @@ namespace RegistrationAndLogin.Models
 
         public int addedBy { get; set; }
         
-        public virtual User User { get; set; }
+       public virtual User User { get; set; }
     }
 }
