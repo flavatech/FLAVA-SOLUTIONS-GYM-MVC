@@ -17,22 +17,21 @@ namespace RegistrationAndLogin.Models
     public partial class customer
     {
         public int id { get; set; }
-        [DisplayName("Customer Name")]
+        
         public string name { get; set; }
-        [DisplayName("Type")]
+       
         public string type { get; set; }
-        [DisplayName("Email Address")]
+       
         public string emailAddress { get; set; }
-        [DisplayName("Telephone #")]
+       
         public string contact { get; set; }
-        [DisplayName("Address")]
+      
         public string address { get; set; }
 
-        [DisplayName("Date Added")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{DD/MM/yyyy}")]
+       
         public DateTime? addedDate { get; set; }
 
-        [DisplayName("Added By")]
+       
         public int addedBy { get; set; }
     
         public virtual User User { get; set; }

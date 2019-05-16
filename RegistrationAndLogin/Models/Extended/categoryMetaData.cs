@@ -18,9 +18,8 @@ namespace RegistrationAndLogin.Models
         [StringLength(120)]
         public string description { get; set; }
 
-        [Required(ErrorMessage = "Date Added is required")]
-        [Display(Name = "Date Added")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{DD/MM/yyyy}")]
+
+        [Display(Name="Date Added")]
         public DateTime? dateAdded { get; set; }
 
         // public Nullable<System.DateTime> dateAdded { get; set; }

@@ -4,13 +4,14 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using RegistrationAndLogin.Models;
 
 namespace RegistrationAndLogin.Models
 {
     public class CustomersMetadata
     {
-        public int id { get; set; }
-        [StringLength(90)]
+       public int id { get; set; }
+
         [Required(ErrorMessage = "Customer name is required")]
         [DisplayName("Customer Name")]
         public string name { get; set; }
@@ -35,14 +36,10 @@ namespace RegistrationAndLogin.Models
         [DisplayName("Address")]
         public string address { get; set; }
 
-
-        [Required(ErrorMessage = "Date Added is required")]
         [DisplayName("Date Added")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{DD/MM/yyyy}")]
         public DateTime? addedDate { get; set; }
 
-        [StringLength(16)]
-        [Required(ErrorMessage = "Added By is required")]
+       // [Required(ErrorMessage = "Added By is required")]
         [DisplayName("Added By")]
         public int addedBy { get; set; }
              }
@@ -52,4 +49,5 @@ namespace RegistrationAndLogin.Models
 
             }
         }
+
 

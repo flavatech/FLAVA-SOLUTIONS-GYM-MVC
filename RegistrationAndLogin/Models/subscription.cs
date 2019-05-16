@@ -29,7 +29,6 @@ namespace RegistrationAndLogin.Models
         public Nullable<int> quantity { get; set; }
 
         [DisplayName("Date Added")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{DD/MM/yyyy}")]
         public DateTime? dateAdded { get; set; }
         public int addedBy { get; set; }
     

@@ -52,7 +52,9 @@ namespace RegistrationAndLogin.Controllers
         {
             if (ModelState.IsValid)
             {
+                category.dateAdded = DateTime.UtcNow;
                 db.categories.Add(category);
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

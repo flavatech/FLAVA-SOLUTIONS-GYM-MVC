@@ -52,6 +52,7 @@ namespace RegistrationAndLogin.Controllers
         {
             if (ModelState.IsValid)
             {
+                customer.addedDate = DateTime.UtcNow;
                 db.customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -86,6 +87,7 @@ namespace RegistrationAndLogin.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 db.Entry(customer).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");

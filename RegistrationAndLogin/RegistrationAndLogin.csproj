@@ -256,6 +256,7 @@
     <Content Include="Views\User\VerifyAccount.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\User\User.cshtml" />
     <Content Include="Views\categories\Create.cshtml" />
     <Content Include="Views\categories\Delete.cshtml" />
     <Content Include="Views\categories\Details.cshtml" />
@@ -271,7 +272,6 @@
     <Content Include="Views\subscriptions\Details.cshtml" />
     <Content Include="Views\subscriptions\Edit.cshtml" />
     <Content Include="Views\subscriptions\Index.cshtml" />
-    <Content Include="Views\User\User.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

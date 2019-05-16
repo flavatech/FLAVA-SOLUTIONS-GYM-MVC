@@ -26,8 +26,12 @@
         <th>
             @Html.DisplayNameFor(model => model.address)
         </th>
-
-
+        <th>
+            @Html.DisplayNameFor(model => model.addedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.addedBy)
+        </th>
         <th></th>
     </tr>
 
@@ -48,8 +52,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.address)
         </td>
-
-
+        <td>
+            @Html.DisplayFor(modelItem => item.addedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.EmailID)
+        </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
             @Html.ActionLink("Details", "Details", new { id=item.id }) |

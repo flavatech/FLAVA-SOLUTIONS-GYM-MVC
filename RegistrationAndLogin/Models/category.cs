@@ -24,7 +24,7 @@ namespace RegistrationAndLogin.Models
         public string description { get; set; }
 
       
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{DD/MM/yyyy}")]
+        
         public DateTime? dateAdded { get; set; }
 
         // public Nullable<System.DateTime> dateAdded { get; set; }

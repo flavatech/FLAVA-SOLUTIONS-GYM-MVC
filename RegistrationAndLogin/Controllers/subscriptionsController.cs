@@ -52,6 +52,7 @@ namespace RegistrationAndLogin.Controllers
         {
             if (ModelState.IsValid)
             {
+                subscription.dateAdded = DateTime.UtcNow;
                 db.subscriptions.Add(subscription);
                 db.SaveChanges();
                 return RedirectToAction("Index");

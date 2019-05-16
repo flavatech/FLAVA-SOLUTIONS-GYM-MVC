@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Subscriptions</h2>
+<h3>Subscriptions</h3>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -26,9 +26,11 @@
         <th>
             @Html.DisplayNameFor(model => model.quantity)
         </th>
-
         <th>
-            @Html.DisplayNameFor(model => model.User.FirstName)
+            @Html.DisplayNameFor(model => model.dateAdded)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.addedBy)
         </th>
         <th></th>
     </tr>
@@ -50,9 +52,11 @@
         <td>
             @Html.DisplayFor(modelItem => item.quantity)
         </td>
-
         <td>
-            @Html.DisplayFor(modelItem => item.User.FirstName)
+            @Html.DisplayFor(modelItem => item.dateAdded)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.EmailID)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |

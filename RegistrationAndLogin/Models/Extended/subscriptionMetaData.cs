@@ -36,10 +36,12 @@ namespace RegistrationAndLogin.Models
         public Nullable<int> quantity { get; set; }
 
 
-        [Required(ErrorMessage = "Date Added is required")]
+
         [DisplayName("Date Added")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{DD/MM/yyyy}")]
+
         public DateTime? dateAdded { get; set; }
+
+        [DisplayName("Added By")]
         public int addedBy { get; set; }
     }
     [MetadataType(typeof(subscriptionMetaData))]
