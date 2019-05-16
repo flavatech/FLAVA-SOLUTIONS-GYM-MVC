@@ -4,14 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FlavaSolutionsGymnMVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FlavaSolutionsGymnMVCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="categories">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="title" Type="varchar" MaxLength="50" />
-          <Property Name="description" Type="varchar" MaxLength="200" />
+          <Property Name="title" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="dateAdded" Type="datetime" />
           <Property Name="addedBy" Type="int" Nullable="false" />
         </EntityType>
@@ -97,18 +97,6 @@
           <Property Name="IsEmailVerified" Type="bit" Nullable="false" />
           <Property Name="ActivationCode" Type="uniqueidentifier" Nullable="false" />
         </EntityType>
-        <Association Name="FK_categories_Users">
-          <End Role="Users" Type="Self.Users" Multiplicity="1" />
-          <End Role="categories" Type="Self.categories" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="categories">
-              <PropertyRef Name="addedBy" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_customers_Users">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="customers" Type="Self.customers" Multiplicity="*" />
@@ -197,10 +185,6 @@
           <EntitySet Name="transactionDetail" EntityType="Self.transactionDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="transactions" EntityType="Self.transactions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_categories_Users" Association="Self.FK_categories_Users">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="categories" EntitySet="categories" />
-          </AssociationSet>
           <AssociationSet Name="FK_customers_Users" Association="Self.FK_customers_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="customers" EntitySet="customers" />
@@ -218,8 +202,7 @@
             <End Role="transactions" EntitySet="transactions" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FlavaSolutionsGymnMVCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -228,8 +211,8 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="dateAdded" Type="DateTime" Precision="3" />
           <Property Name="addedBy" Type="Int32" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_categories_Users" FromRole="categories" ToRole="Users" />

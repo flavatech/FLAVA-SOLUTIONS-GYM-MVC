@@ -11,16 +11,26 @@ namespace RegistrationAndLogin.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class subscription
     {
         public int id { get; set; }
+        [DisplayName("Subscription Name")]
         public string name { get; set; }
+        [DisplayName("Category")]
         public string category { get; set; }
+        [DisplayName("Description")]
         public string description { get; set; }
+        [DisplayName("Price")]
         public Nullable<decimal> price { get; set; }
+        [DisplayName("Quantity")]
         public Nullable<int> quantity { get; set; }
-        public Nullable<System.DateTime> dateAdded { get; set; }
+
+        [DisplayName("Date Added")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{DD/MM/yyyy}")]
+        public DateTime? dateAdded { get; set; }
         public int addedBy { get; set; }
     
         public virtual User User { get; set; }
