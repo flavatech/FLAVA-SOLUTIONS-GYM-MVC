@@ -257,11 +257,6 @@
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\User\User.cshtml" />
-    <Content Include="Views\categories\Create.cshtml" />
-    <Content Include="Views\categories\Delete.cshtml" />
-    <Content Include="Views\categories\Details.cshtml" />
-    <Content Include="Views\categories\Edit.cshtml" />
-    <Content Include="Views\categories\Index.cshtml" />
     <Content Include="Views\customers\Create.cshtml" />
     <Content Include="Views\customers\Delete.cshtml" />
     <Content Include="Views\customers\Details.cshtml" />
@@ -273,6 +268,11 @@
     <Content Include="Views\subscriptions\Edit.cshtml" />
     <Content Include="Views\subscriptions\Index.cshtml" />
     <Content Include="Views\Shared\Authenticated.cshtml" />
+    <Content Include="Views\categories\Create.cshtml" />
+    <Content Include="Views\categories\Delete.cshtml" />
+    <Content Include="Views\categories\Details.cshtml" />
+    <Content Include="Views\categories\Edit.cshtml" />
+    <Content Include="Views\categories\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

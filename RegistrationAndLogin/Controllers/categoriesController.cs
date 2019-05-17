@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
@@ -13,22 +14,22 @@ namespace RegistrationAndLogin.Controllers
     public class categoriesController : Controller
     {
         private FlavaSolutionsGymnMVCEntities db = new FlavaSolutionsGymnMVCEntities();
-
+        [Authorize]
         // GET: categories
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
             var categories = db.categories.Include(c => c.User);
-            return View(categories.ToList());
+            return View(await categories.ToListAsync());
         }
 
         // GET: categories/Details/5
-        public ActionResult Details(int? id)
+        public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            category category = db.categories.Find(id);
+            category category = await db.categories.FindAsync(id);
             if (category == null)
             {
                 return HttpNotFound();
@@ -48,14 +49,13 @@ namespace RegistrationAndLogin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,title,description,dateAdded,addedBy")] category category)
+        public async Task<ActionResult> Create([Bind(Include = "id,title,description,dateAdded,addedBy")] category category)
         {
             if (ModelState.IsValid)
             {
                 category.dateAdded = DateTime.UtcNow;
                 db.categories.Add(category);
-
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
@@ -64,13 +64,13 @@ namespace RegistrationAndLogin.Controllers
         }
 
         // GET: categories/Edit/5
-        public ActionResult Edit(int? id)
+        public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            category category = db.categories.Find(id);
+            category category = await db.categories.FindAsync(id);
             if (category == null)
             {
                 return HttpNotFound();
@@ -84,12 +84,12 @@ namespace RegistrationAndLogin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,title,description,dateAdded,addedBy")] category category)
+        public async Task<ActionResult> Edit([Bind(Include = "id,title,description,dateAdded,addedBy")] category category)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(category).State = EntityState.Modified;
-                db.SaveChanges();
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
             ViewBag.addedBy = new SelectList(db.Users, "UserID", "FirstName", category.addedBy);
@@ -97,13 +97,13 @@ namespace RegistrationAndLogin.Controllers
         }
 
         // GET: categories/Delete/5
-        public ActionResult Delete(int? id)
+        public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            category category = db.categories.Find(id);
+            category category = await db.categories.FindAsync(id);
             if (category == null)
             {
                 return HttpNotFound();
@@ -114,11 +114,11 @@ namespace RegistrationAndLogin.Controllers
         // POST: categories/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            category category = db.categories.Find(id);
+            category category = await db.categories.FindAsync(id);
             db.categories.Remove(category);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
             return RedirectToAction("Index");
         }
 

@@ -2,12 +2,13 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Authenticated.cshtml";
 }
 
-<h2>Details</h2>
+<h3>Category Details</h3>
 
 <div>
-    <h4></h4>
+
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -35,11 +36,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.User.FirstName)
+            @Html.DisplayNameFor(model => model.addedBy)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.User.FirstName)
+            @Html.DisplayFor(model => model.User.EmailID)
         </dd>
 
     </dl>
